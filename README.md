@@ -15,4 +15,4 @@ Visual Studio Code: A free and open-source code editor with extensive C++ suppor
 
 Then you can just run the engine by pressing F5 in Visual Studio Code.
 
-Note: This is a basic setup guide. More detailed instructions might be needed depending on your specific environment.
+> Note: This is a basic setup guide. More detailed instructions might be needed depending on your specific environment.
