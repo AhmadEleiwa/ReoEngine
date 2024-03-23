@@ -8,8 +8,10 @@ Focus on the heart and soul of your game – the gameplay and visuals – while 
 Make sure to install the following:
 
 MinGW (Windows): A free and open-source compiler suite for Windows. Download it from https://www.mingw-w64.org/.
+
 Visual Studio Code: A free and open-source code editor with extensive C++ support. Download it from https://code.visualstudio.com/.
-After installation, add MinGW to your system environment variables.
+
+**After installation, add MinGW to your system environment variables.**
 
 Then you can just run the engine by pressing F5 in Visual Studio Code.
 
