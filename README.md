@@ -18,3 +18,7 @@ Then you can just run the engine by pressing F5 in Visual Studio Code.
 > Note: This is a basic setup guide. More detailed instructions might be needed depending on your specific environment.
 
 **Make sure to copy the required DLLs to the build directory** 
+Project
+-- build
+---- app.exe    
+---- glfw3.dll  
