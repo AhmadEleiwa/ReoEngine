@@ -4,7 +4,6 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            
             "command": "C:/Program Files/mingw64/bin/g++.exe",
             "args": [
                 "-g",
@@ -30,6 +29,7 @@
                 "isDefault": true
             },
             "detail": "compiler: C:/C:/path/to/g++.exe"
-        }
+        },
+        
     ]
 }
