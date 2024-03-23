@@ -4,6 +4,7 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
+            
             "command": "C:/Program Files/mingw64/bin/g++.exe",
             "args": [
                 "-g",
@@ -14,8 +15,9 @@
                 "${workspaceFolder}/src/glad.c",
                 "${workspaceFolder}/include/utils/*",
                 "-lglfw3dll",
+                "-mwindows",
                 "-o",
-                "${workspaceFolder}/cutable.exe"
+                "${workspaceFolder}/build/app.exe",
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
