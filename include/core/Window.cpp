@@ -4,11 +4,12 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 
     glViewport(0, 0, width, height);
 }
-Window::Window() {
+Window::Window(){
 
 };
 
-Window::Window(int width, int height, const char* title) {
+Window::Window(int width, int height, const char *title)
+{
     if (!glfwInit())
     {
         std::cout << "Failed to initialize GLFW" << std::endl;
@@ -20,32 +21,40 @@ Window::Window(int width, int height, const char* title) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-
     std::string str = "Reo Engine";
     window = glfwCreateWindow(800, 600, str.c_str(), NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to open GLFW window" << std::endl;
-        return ;
+        return;
     }
     glfwMakeContextCurrent(window);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
-        return ;
+        return;
     }
 
     glViewport(0, 0, 800, 600);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 }
-bool Window::shouldClose() {
+bool Window::shouldClose()
+{
     return glfwWindowShouldClose(window);
 }
-void Window::update() {
+void Window::update()
+{
     glfwSwapBuffers(window);
     glfwPollEvents();
 }
-Window::~Window() {
+Window::~Window()
+{
     glfwTerminate();
+}
+
+void Window::clear(float r, float g, float b, float a)
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClearColor(r, g, b, a);
 }
