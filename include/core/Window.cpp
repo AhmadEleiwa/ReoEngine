@@ -21,12 +21,14 @@ Window::Window(int width, int height, const char *title)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    window = glfwCreateWindow(800, 600, title, NULL, NULL);
+    window = glfwCreateWindow(width, height, title, NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to open GLFW window" << std::endl;
         return;
     }
+    this->width = width;
+    this->height = height;
     glfwMakeContextCurrent(window);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -35,8 +37,11 @@ Window::Window(int width, int height, const char *title)
         return;
     }
 
-    glViewport(0, 0, 800, 600);
+    glViewport(0, 0, width, height);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 bool Window::shouldClose()
 {
@@ -56,4 +61,15 @@ void Window::clear(float r, float g, float b, float a)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(r, g, b, a);
+}
+int Window::getWidth(){
+    return width;
+}
+int Window::getHeight(){
+    return height;
+}
+
+bool Window::getKeyPressed(int key)
+{
+    return glfwGetKey(window, key) == GLFW_PRESS;
 }
