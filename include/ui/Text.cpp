@@ -1,12 +1,7 @@
 #include "Text.h"
 
-Text::Text(std::string text, float x=0, float y=0, float scale=1.0f, glm::vec3 color = glm::vec3(0.0f, 0.0f, 0.0f), std::string font = "fonts/arial.ttf")
+void Text::init(std::string font)
 {
-    this->text = text;
-    this->x = x;
-    this->y = y;
-    this->scale = scale;
-    this->color = color;
     FT_Library ft;
     FT_Face face;
     if (FT_Init_FreeType(&ft))
@@ -73,7 +68,55 @@ Text::Text(std::string text, float x=0, float y=0, float scale=1.0f, glm::vec3 c
     FT_Done_Face(face);
     FT_Done_FreeType(ft);
 }
+Text::Text(std::string text, float x, float y, float scale, glm::vec3 color, std::string font)
+{
+    this->text = text;
+    this->x = x;
+    this->y = y;
+    this->scale = scale;
+    this->color = color;
+    init(font);
+}
+// write all possible contstructors here
+Text::Text(std::string text, float x, float y, float scale, glm::vec3 color)
+{
 
+    this->text = text;
+    this->x = x;
+    this->y = y;
+    this->scale = scale;
+    this->color = color;
+    init("fonts/arial.ttf");
+}
+Text::Text(std::string text, float x, float y, float scale)
+{
+
+    this->text = text;
+    this->x = x;
+    this->y = y;
+    this->scale = scale;
+    this->color = glm::vec3(0, 0, 0);
+    init("fonts/arial.ttf");
+}
+Text::Text(std::string text, float x, float y)
+{
+    this->text = text;
+    this->x = x;
+    this->y = y;
+    this->scale = 0.5f;
+    this->color = glm::vec3(0, 0, 0);
+    init("fonts/arial.ttf");
+}
+Text::Text(std::string text)
+{
+
+    this->text = text;
+    this->x = 0;
+    this->y = 0;
+    this->scale = 0.5f;
+    this->color = glm::vec3(0, 0, 0);
+    init("fonts/arial.ttf");
+}
 void Text::render(Program *program)
 {
     int x = this->x;

@@ -19,9 +19,16 @@ class Text
     float x, y, scale;
     glm::vec3 color;
 
+    void init(std::string font);
+
 public:
-    Text(std::string text, float x = 0, float y = 0, float scale = 0.5f, glm::vec3 color = glm::vec3(1.0f, 1.0f, 1.0f), std::string font = "fonts/arial.ttf");
-    ~Text() = default;
+    Text(std::string text);
+    Text(std::string text, float x, float y);
+    Text(std::string text, float x, float y, float scale);
+    Text(std::string text, float x, float y, float scale, glm::vec3 color);
+    Text(std::string text, float x, float y, float scale, glm::vec3 color, std::string font);
+
+    ~Text();
     void render(Program *program);
     void setText(std::string text);
     std::string getText();
