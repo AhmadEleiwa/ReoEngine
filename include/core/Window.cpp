@@ -21,8 +21,7 @@ Window::Window(int width, int height, const char *title)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    std::string str = "Reo Engine";
-    window = glfwCreateWindow(800, 600, str.c_str(), NULL, NULL);
+    window = glfwCreateWindow(800, 600, title, NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to open GLFW window" << std::endl;
