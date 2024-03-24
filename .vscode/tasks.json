@@ -12,10 +12,8 @@
                 "-L${workspaceFolder}/lib",
                 "${workspaceFolder}/src/main.cpp",
                 "${workspaceFolder}/src/glad.c",
-                "${workspaceFolder}/include/core/*.h",
-                "${workspaceFolder}/include/core/*.cpp",
-                "${workspaceFolder}/include/ui/*.h",
-                "${workspaceFolder}/include/ui/*.cpp",
+                "${workspaceFolder}/**.h",
+                "${workspaceFolder}/**.cpp",
 
                 "-lglfw3dll",
                 "-mwindows",
