@@ -21,8 +21,10 @@ Then you can just run the engine by pressing F5 in Visual Studio Code.
 
 Project
 
--- build
+---- build 
 
----- app.exe    
+-------- app.exe    
 
----- glfw3.dll  
+-------- glfw3.dll  
+
+-------- freetype.dll
