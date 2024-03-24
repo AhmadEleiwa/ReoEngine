@@ -4,7 +4,7 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "C:/Program Files/mingw64/bin/g++.exe",
+            "command": "g++.exe",
             "args": [
                 "-g",
                 "-std=c++17",
@@ -12,8 +12,11 @@
                 "-L${workspaceFolder}/lib",
                 "${workspaceFolder}/src/main.cpp",
                 "${workspaceFolder}/src/glad.c",
-                "${workspaceFolder}/include/core/*",
-                "${workspaceFolder}/include/ui/*",
+                "${workspaceFolder}/include/core/*.h",
+                "${workspaceFolder}/include/core/*.cpp",
+                "${workspaceFolder}/include/ui/*.h",
+                "${workspaceFolder}/include/ui/*.cpp",
+
                 "-lglfw3dll",
                 "-mwindows",
                 "-o",
