@@ -3,7 +3,6 @@
 Program::Program(std::string vertexPath, std::string fragmentPath)
 {
 
-
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     std::string vertexCode;
     std::string textLine;
@@ -84,4 +83,13 @@ Program::~Program()
 void Program::use()
 {
     glUseProgram(this->id);
+}
+
+void Program::setUniform3f(std::string name, glm::vec3 value)
+{
+    glUniform3f(glGetUniformLocation(this->id, name.c_str()), value.x, value.y, value.z);
+}
+void Program::setMat4(std::string name, glm::mat4 value)
+{
+    glUniformMatrix4fv(glGetUniformLocation(this->id, name.c_str()), 1, GL_FALSE, glm::value_ptr(value));
 }

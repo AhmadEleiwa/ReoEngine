@@ -4,7 +4,8 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <windows.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 class Program
 {
 private:
@@ -13,5 +14,7 @@ private:
 public:
     Program(std::string vertexPath, std::string fragmentPath);
     ~Program();
+    void setUniform3f(std::string, glm::vec3);
+    void setMat4(std::string, glm::mat4);
     void use();
 };
