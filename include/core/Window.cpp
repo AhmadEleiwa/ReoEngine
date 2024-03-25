@@ -41,6 +41,7 @@ Window::Window(int width, int height, const char *title)
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     glEnable(GL_BLEND);
+    glEnable(GL_DEPTH_TEST);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 bool Window::shouldClose()
@@ -72,4 +73,9 @@ int Window::getHeight(){
 bool Window::getKeyPressed(int key)
 {
     return glfwGetKey(window, key) == GLFW_PRESS;
+}
+
+GLFWwindow * Window::getWindow()
+{
+    return window;
 }
