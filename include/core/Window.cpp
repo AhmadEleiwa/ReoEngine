@@ -21,8 +21,8 @@ Window::Window(int width, int height, const char *title)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-
     window = glfwCreateWindow(width, height, title, NULL, NULL);
+    glfwSetWindowPos(window, width / 2, width / 2);
     if (window == NULL)
     {
         std::cout << "Failed to open GLFW window" << std::endl;
@@ -38,23 +38,23 @@ Window::Window(int width, int height, const char *title)
         return;
     }
 
-    // glViewport(0, 0, width, height);
-    // glViewport(0, 0, mode->width, mode->height);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     glEnable(GL_BLEND);
     glEnable(GL_DEPTH_TEST);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
-void Window::setFullscreen(){
+void Window::setFullscreen()
+{
     GLFWmonitor *monitor = glfwGetPrimaryMonitor();
     const GLFWvidmode *mode = glfwGetVideoMode(monitor);
     glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, 0);
 }
-void Window::setWindowed(){
+void Window::setWindowed()
+{
     GLFWmonitor *monitor = glfwGetPrimaryMonitor();
     const GLFWvidmode *mode = glfwGetVideoMode(monitor);
-    glfwSetWindowMonitor(window, NULL, this->width / 2, this->height/2, this->width, this->height, 0);
+    glfwSetWindowMonitor(window, NULL, this->width / 2, this->height / 2, this->width, this->height, 0);
 }
 bool Window::shouldClose()
 {
@@ -75,10 +75,12 @@ void Window::clear(float r, float g, float b, float a)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(r, g, b, a);
 }
-int Window::getWidth(){
+int Window::getWidth()
+{
     return width;
 }
-int Window::getHeight(){
+int Window::getHeight()
+{
     return height;
 }
 
@@ -87,7 +89,7 @@ bool Window::getKeyPressed(int key)
     return glfwGetKey(window, key) == GLFW_PRESS;
 }
 
-GLFWwindow * Window::getWindow()
+GLFWwindow *Window::getWindow()
 {
     return window;
 }
