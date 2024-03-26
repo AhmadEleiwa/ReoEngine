@@ -8,6 +8,7 @@ private:
     GLFWwindow *window;
     int width, height;
     const char *title;
+
 public:
     Window();
     Window(int width, int height, const char *title);
@@ -19,4 +20,7 @@ public:
     int getWidth();
     int getHeight();
     bool getKeyPressed(int key);
+    void closeWindow();
+    void setFullscreen();
+    void setWindowed();
 };

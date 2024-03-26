@@ -21,6 +21,7 @@ Window::Window(int width, int height, const char *title)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+
     window = glfwCreateWindow(width, height, title, NULL, NULL);
     if (window == NULL)
     {
@@ -37,12 +38,23 @@ Window::Window(int width, int height, const char *title)
         return;
     }
 
-    glViewport(0, 0, width, height);
+    // glViewport(0, 0, width, height);
+    // glViewport(0, 0, mode->width, mode->height);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     glEnable(GL_BLEND);
     glEnable(GL_DEPTH_TEST);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+}
+void Window::setFullscreen(){
+    GLFWmonitor *monitor = glfwGetPrimaryMonitor();
+    const GLFWvidmode *mode = glfwGetVideoMode(monitor);
+    glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, 0);
+}
+void Window::setWindowed(){
+    GLFWmonitor *monitor = glfwGetPrimaryMonitor();
+    const GLFWvidmode *mode = glfwGetVideoMode(monitor);
+    glfwSetWindowMonitor(window, NULL, this->width / 2, this->height/2, this->width, this->height, 0);
 }
 bool Window::shouldClose()
 {
@@ -78,4 +90,8 @@ bool Window::getKeyPressed(int key)
 GLFWwindow * Window::getWindow()
 {
     return window;
+}
+void Window::closeWindow()
+{
+    glfwSetWindowShouldClose(window, GLFW_TRUE);
 }
