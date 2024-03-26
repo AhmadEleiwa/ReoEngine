@@ -1,0 +1,19 @@
+{
+    "args": [
+        "-g",
+        "-std=c++17",
+        "-Iinclude",
+        "-Llib",
+        "src/**.c",
+        "src/**.cpp",
+        "include/core/**.cpp",
+        "include/core/**.h",
+        "include/ui/**.cpp",
+        "include/ui/**.h",
+        "-lglfw3dll",
+        "-lfreetype",
+        "-mwindows",
+        "-o",
+        "build/app.exe"
+    ]
+}
