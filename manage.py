@@ -1,4 +1,4 @@
-from os import path, listdir, chdir
+from os import path, listdir, chdir, mkdir
 import subprocess
 from sys import argv
 import json
@@ -23,6 +23,8 @@ def run():
 
 def build():
     print("building...")
+    if not path.isdir(f"build"):
+        mkdir(f"build")
     subprocess.run(["g++.exe "]+args)
     filtered_idlls = list(filter(lambda x: x.endswith(".dll"),  listdir(f".")))
     filtered_files2 = list(filter(lambda x: not (x.endswith(".cpp") or x.endswith(".h") or x.endswith(".c")),  listdir(f"src")))
