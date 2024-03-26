@@ -19,9 +19,18 @@ Then you can just run the engine by pressing F5 in Visual Studio Code.
 
 **Make sure to copy the required DLLs and the uesd folders in src/ to the build directory** 
 
-Project
+### Manage Script
+'manage.py' is a python script that allow you to compile and build the project with specific folders
+```bash
+python manage.py build
+```
+You can use -h option to get information and more details about the option 
+```bash
+python manage.py -h
+```
 
 ---- build/
+
 -------- shaders/
 
 -------- fonts/
