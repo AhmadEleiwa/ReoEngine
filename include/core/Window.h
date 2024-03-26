@@ -23,4 +23,24 @@ public:
     void closeWindow();
     void setFullscreen();
     void setWindowed();
+
+    void setPosition(double x, double y);
+    void setCursorMode(int mode);
+    void setCursorPosition(double x, double y);
+    void requestAttention();
+    // void setWindowIcon(const char *path);
+    // void setWindowIcon(GLFWimage *images, int count);
+
+    void setCursorPosCallback(GLFWcursorposfun callback);
+    void setMouseButtonCallback(GLFWmousebuttonfun callback);
+    void setScrollCallback(GLFWscrollfun callback);
+    void setKeyCallback(GLFWkeyfun callback);
+    void setCharCallback(GLFWcharfun callback);
+    void setWindowCloseCallback(GLFWwindowclosefun callback);
+    void setWindowRefreshCallback(GLFWwindowrefreshfun callback);
+    void setWindowFocusCallback(GLFWwindowfocusfun callback);
+    void setWindowPosCallback(GLFWwindowposfun callback);
+    void setFramebufferSizeCallback(GLFWframebuffersizefun callback);
+    void setWindowContentScaleCallback(GLFWwindowcontentscalefun callback);
+
 };
