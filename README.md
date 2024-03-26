@@ -28,6 +28,7 @@ You can use -h option to get information and more details about the option
 ```bash
 python manage.py -h
 ```
+The build structure should be like that: 
 
 ---- build/
 
