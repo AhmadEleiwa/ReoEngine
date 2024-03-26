@@ -8,7 +8,7 @@ help ="""manage.py
         usage: manage.py [build|run|-h]
         manage.py build : build the project, copying the important files
         manage.py run -c [--cache] : run existence build
-        manage.py run : compile andrun the project, without copying the files
+        manage.py run : compile and run the project, without copying the files
         manage.py -h : help
           """
 args = json.load(open("setup.json"))["args"]
