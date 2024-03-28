@@ -354,3 +354,15 @@ void Window::setWindowCloseCallback(GLFWwindowclosefun callback)
 {
     glfwSetWindowCloseCallback(window, callback);
 }
+
+
+void Window::setWindowIcon(const char *path){
+    GLFWimage image;
+    image.pixels = stbi_load(path, &image.width, &image.height, 0, 4); // 4 components (RGBA)
+
+    if (image.pixels)
+    {
+        glfwSetWindowIcon(window, 1, &image);
+        stbi_image_free(image.pixels); // Free the image data after setting the icon
+    }
+}

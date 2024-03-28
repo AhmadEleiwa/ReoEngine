@@ -1,7 +1,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-
+#include <stb_image.h>
 class Window
 {
 private:
@@ -28,7 +28,7 @@ public:
     void setCursorMode(int mode);
     void setCursorPosition(double x, double y);
     void requestAttention();
-    // void setWindowIcon(const char *path);
+    void setWindowIcon(const char *path);
     // void setWindowIcon(GLFWimage *images, int count);
 
     void setCursorPosCallback(GLFWcursorposfun callback);
