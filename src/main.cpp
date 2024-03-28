@@ -8,12 +8,14 @@
 #include "core/Window.h"
 #include <core/Camera.h>
 // #include "core/Program.h"
+#include <stb_image.h>
 
 // using namespace std;
 int main()
 {
 
     Window *win = new Window(800, 600, "Hello World");
+    win->setWindowIcon("logo.png");
 
     GLfloat vertices[] = {
         // Positions          // Colors
@@ -53,11 +55,12 @@ int main()
     Text *text = new Text(str, 0, 0);
     double pox = 0, poy = 0;
     float deltaTime, lastTime;
+
     while (!win->shouldClose())
     {
         deltaTime = glfwGetTime() - lastTime;
         lastTime = glfwGetTime();
-        win->clear(1.0f, 1.0f, 1.0f, 1.0f);
+        win->clear(1.0f, 1.0f, 1.0f, 0.5f);
         // prog2->use();
         prog->use();
         prog->setMat4("projection", projection);
@@ -68,6 +71,7 @@ int main()
         glBindVertexArray(0);
         prog2->use();
         prog2->setMat4("projection", projection2);
+
         text->render(prog2);
         glfwGetCursorPos(win->getWindow(), &pox, &poy);
         camera->ProcessMouseMovement(pox, poy, true);
@@ -87,7 +91,16 @@ int main()
         {
             camera->ProcessKeyboard(Camera_Movement::RIGHT, deltaTime);
         }
-
+        if (win->getKeyPressed(GLFW_KEY_SPACE))
+        {
+            win->setFullscreen();
+        }
+        if (win->getKeyPressed(GLFW_KEY_F))
+        {
+            win->setWindowed();
+        }
+        if (deltaTime > 1000)
+            win->requestAttention();
         win->update();
     }
 
