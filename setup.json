@@ -8,6 +8,8 @@
         "src/**.cpp",
         "include/core/**.cpp",
         "include/core/**.h",
+        "include/*.cpp",
+        "include/*.h",
         "include/ui/**.cpp",
         "include/ui/**.h",
         "-lglfw3dll",
