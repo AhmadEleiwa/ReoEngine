@@ -120,7 +120,6 @@ Text::Text(std::string text)
 void Text::render(Program *program)
 {
     int x = this->x;
-    program->use();
     program->setUniform3f("textColor", this->color);
 
     glActiveTexture(GL_TEXTURE0);
