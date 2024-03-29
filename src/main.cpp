@@ -1,13 +1,14 @@
-// #include <iostream>
-// #include <glad/glad.h>
-// #include <GLFW/glfw3.h>
-// #include <ft2build.h>
-// #include <core/Window.h>
+#pragma once
+#include <iostream>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <ft2build.h>
+#include <core/Window.h>
 
 #include <ui/Text.h>
 #include "core/Window.h"
 #include <core/Camera.h>
-// #include "core/Program.h"
+#include "core/Program.h"
 #include <stb_image.h>
 
 // using namespace std;
